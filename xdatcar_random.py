@@ -15,11 +15,11 @@ with open(xdatcar_path, 'r') as f:
     atom_counts = list(map(int, lines[6].split()))
     sum_atoms = sum(atom_counts)
 
-# 提取所有帧编号（从 OSZICAR 中）
+# 提取所有帧编号（从 XDATCAR 中）
 with open(oszicar_path, 'r') as f:
     all_steps = sorted(set(
-        int(line.split()[0])
-        for line in f if 'F=' in line
+        int(line.split()[2])
+        for line in f if 'configuration' in line
     ))
 
 total_steps = len(all_steps)
