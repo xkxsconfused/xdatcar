@@ -13,7 +13,7 @@ echo "source /opt/intel/impi/2018.1.163/bin64/mpivars.sh"
 while IFS= read -r line; do
     # 输出模板内容，并在中间插入当前行
     echo "cd \$PBS_O_WORKDIR"
-    echo "$line"
+    echo "cd $line"
     echo "mpirun  -n 32 /opt/vasp.5.4.1/bin/vasp_std >> log"
     echo "wait"
     echo ""  # 添加空行分隔不同的任务块
